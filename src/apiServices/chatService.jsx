@@ -34,4 +34,18 @@ chatService.getConversationBetweenUsers = function (senderId) {
   });
 };
 
+chatService.getChatDetailes = function (senderId) {
+  const isAuthToken = localStorage.getItem("auth");
+  console.log("IS AUTH : ", typeof isAuthToken);
+  console.log("Inside Without Fetching ChatDetailes : ", senderId);
+  return fetch({
+    url: `/getchatdetailes`,
+    method: "post",
+    headers: {
+      Authorization: `Bearer ${isAuthToken}`,
+    },
+    data: { senderId },
+  });
+};
+
 export default chatService;

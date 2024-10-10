@@ -35,6 +35,7 @@ const ChattingBar = () => {
     socket.current.on("Receive-Message", ({ message, from }) => {
       console.log("Received message from sender:", message);
       if (message) {
+        console.log("------------->", message);
         setLatestMessages((prevMessages) => [
           ...prevMessages,
           { message, from },
